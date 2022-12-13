@@ -1,0 +1,27 @@
+{
+  "name": "udacity-fullstack-nano-project-1",
+  "version": "1.0.0",
+  "description": "Build an image processing API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FrancineMADOH/udacity-fullstack-nano-project-1.git"
+  },
+  "keywords": [
+    "Nodejs",
+    "prettier",
+    "eslint",
+    "typescript",
+    "jasmine",
+    "express"
+  ],
+  "author": "francinemadoh@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FrancineMADOH/udacity-fullstack-nano-project-1/issues"
+  },
+  "homepage": "https://github.com/FrancineMADOH/udacity-fullstack-nano-project-1#readme"
+}
