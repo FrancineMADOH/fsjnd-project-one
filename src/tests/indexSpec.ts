@@ -7,7 +7,7 @@ const request = supertest(app);
 
 describe("Test  hello world endpoint response", () => {
     it("gets the api endpoint", async (done) => {
-        const response = await request.get('/hello');
+        const response = await request.get('/');
         expect(response.status).toBe(200);
         done();
     }
