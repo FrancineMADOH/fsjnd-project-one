@@ -8,7 +8,7 @@ export function resizeImage() {
     const newImage = ( imgName: string,imgWidth: number, imgHeight: number) => {
         return sharp(path.join(`${inputFolder}/${imgName}.jpg`))
             .resize({ width: imgWidth, height: imgHeight })
-            .toFormat("jpeg", { mozjpeg: true })
+            .toFormat("jpg", { mozjpg: true })
             .toBuffer();
     }
     return newImage

@@ -1,5 +1,5 @@
 import express ,{Request, Response } from  "express";
-import imgRouter from "./apiRoutes.ts/imgRoute";
+import imgRouter from "./apiRoutes/imgRoute";
 
 const router =  express.Router()
 
