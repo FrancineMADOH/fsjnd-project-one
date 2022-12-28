@@ -37,6 +37,10 @@ Run the linting script with `npm run lint `
 
 Beautify the project by running the prettier command `npm run prettier `
 
+### Building 
+
+Build the project by running `npm run build`
+
 ## Usage
 
 visit: `http://localhost:4000/api` for documentation on how to use the API
