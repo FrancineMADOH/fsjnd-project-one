@@ -47,7 +47,7 @@ describe("Test the main API endpoint response", function () {
         var response;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, request.get('/api')];
+                case 0: return [4 /*yield*/, request.get("/api")];
                 case 1:
                     response = _a.sent();
                     expect(response.status).toBe(200);
@@ -56,8 +56,3 @@ describe("Test the main API endpoint response", function () {
         });
     }); });
 });
-// describe("Test the image resizing process", ()=>{
-//     it("Expect a resolved promise", async() =>{
-//         await expectAsync(resizeImage()("hands",100,150)).toBeResolved();
-//     });
-// });

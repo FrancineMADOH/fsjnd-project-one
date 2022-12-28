@@ -50,7 +50,7 @@ describe("Test the image resizing process", function () {
         var res;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, request.get('/api/resize?imgName=hands&imgWidth=100&imgHeight=150')];
+                case 0: return [4 /*yield*/, request.get("/api/resize?imgName=hands&imgWidth=100&imgHeight=150")];
                 case 1:
                     res = _a.sent();
                     expect(res.status).toBe(200);
@@ -68,22 +68,20 @@ describe("Test the image resizing process", function () {
             }
         });
     }); });
-    it("Check if the provided input file exist", function () { return __awaiter(void 0, void 0, void 0, function () {
+    it("Rename the new resized image", function () { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, expectAsync((0, imgResizing_1.resizeImage)()("man", 100, 150))
-                        .toBeRejectedWith(new Error("The provided file input does\'nt exist"))];
+                case 0: return [4 /*yield*/, expect((0, imgResizing_1.getResizedImagePath)()("hands", 100, 150)).toEqual("".concat(outputFolder, "/").concat("res_").concat("hands").concat(100).concat(150, ".jpg"))];
                 case 1:
                     _a.sent();
                     return [2 /*return*/];
             }
         });
     }); });
-    it("Rename the new resized image", function () { return __awaiter(void 0, void 0, void 0, function () {
+    it("Check if the provided input file exist", function () { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, expect((0, imgResizing_1.getResizedImagePath)()("hands", 100, 150))
-                        .toEqual("".concat(outputFolder, "/").concat("res_").concat("hands").concat(100).concat(150, ".jpg"))];
+                case 0: return [4 /*yield*/, expectAsync((0, imgResizing_1.resizeImage)()("man", 100, 150)).toBeRejectedWith(new Error("The provided file input does'nt exist"))];
                 case 1:
                     _a.sent();
                     return [2 /*return*/];
