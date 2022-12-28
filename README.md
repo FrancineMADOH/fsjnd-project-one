@@ -8,6 +8,7 @@
 - [Getting Started](#getting_started)
 - [Installing](#installing)
 - [Usage](#usage)
+- [Specials thanks and credits](#Specials thanks and credits)
 
 ## About
 
@@ -25,7 +26,7 @@ Running the project thought the command `npm run start` the application is avail
 
 ### Test Script
 
-Run the test script with the command `npm run test` to run the test in developement mode
+Run the test script with the command `npm run test` to run the test in developement mode this will build the project before performing the tests.
 
 To run the test im production mode run `npm run jasmine`
 
@@ -48,3 +49,14 @@ visit: `http://localhost:4000/api` for documentation on how to use the API
 Access the `api/resize` route by providing images parameters. For example by entering the following address:
 `http:localhost:4000/api/resize?imgName=me&imgWidgth=200&imgHeight=200
 the image named me will be resized to 200x200. The new resized image will be populate in the public/thumnails folder with a new custom name following the pattern "res_" + "imageName+width +height" + ".jpeg"
+
+## Specials thanks and credits
+
+- https://www.digitalocean.com/community/tutorials/how-to-process-images-in-node-js-with-sharp 
+- https://zellwk.com/blog/endpoint-testing/
+- https://stackoverflow.com/questions/59111359/express-js-typescript-error-ts2339-property-send-does-not-exist-on-type-res 
+- https://github.com/fedeval/image-processing-api 
+- https://www.positronx.io/node-rotate-resize-image-size-using-sharp-module-tutorial/ 
+- https://blog.logrocket.com/processing-images-sharp-node-js/
+- https://stackoverflow.com/questions/56308581/uncaught-error-listen-eaddrinuse-address-already-in-use-3000-when-mocha-uni
+- https://www.youtube.com/watch?v=xZ_Rnh1UHTs
