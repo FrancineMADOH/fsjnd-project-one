@@ -8,7 +8,6 @@
 - [Getting Started](#getting_started)
 - [Installing](#installing)
 - [Usage](#usage)
-- [Specials thanks and credits](#contributing)
 
 ## About
 
