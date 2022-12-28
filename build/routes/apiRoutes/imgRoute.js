@@ -39,21 +39,41 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var supertest_1 = __importDefault(require("supertest"));
-var index_1 = __importDefault(require("../index"));
-var request = (0, supertest_1.default)(index_1.default);
-//Test the main api route
-describe("Test the main API endpoint response", function () {
-    it("Gets the api endpoint", function () { return __awaiter(void 0, void 0, void 0, function () {
-        var response;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, request.get("/api")];
-                case 1:
-                    response = _a.sent();
-                    expect(response.status).toBe(200);
-                    return [2 /*return*/];
-            }
-        });
-    }); });
-});
+var path_1 = __importDefault(require("path"));
+var fs_1 = __importDefault(require("fs"));
+var fs_2 = require("fs");
+var express_1 = __importDefault(require("express"));
+var imgResizing_1 = require("../../middlewares/imgResizing");
+var imgRouter = express_1.default.Router();
+imgRouter.get("/", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var imgWidth, imgHeight, imgName, imgPath, newImage, e_1;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 4, , 5]);
+                imgWidth = parseInt(req.query.imgWidth);
+                imgHeight = parseInt(req.query.imgHeight);
+                imgName = req.query.imgName;
+                imgPath = (0, imgResizing_1.getResizedImagePath)()(imgName, imgWidth, imgHeight);
+                if (!(fs_1.default.existsSync(imgPath) != true)) return [3 /*break*/, 3];
+                return [4 /*yield*/, (0, imgResizing_1.resizeImage)()(imgName, imgWidth, imgHeight)];
+            case 1:
+                newImage = _a.sent();
+                //save the new image to the thumbnail folder
+                return [4 /*yield*/, fs_2.promises.writeFile(imgPath, newImage)];
+            case 2:
+                //save the new image to the thumbnail folder
+                _a.sent();
+                _a.label = 3;
+            case 3:
+                res.status(200).sendFile(path_1.default.resolve(imgPath));
+                return [3 /*break*/, 5];
+            case 4:
+                e_1 = _a.sent();
+                res.status(500).send("An error occurs");
+                return [3 /*break*/, 5];
+            case 5: return [2 /*return*/];
+        }
+    });
+}); });
+exports.default = imgRouter;

@@ -39,19 +39,44 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var path_1 = __importDefault(require("path"));
 var supertest_1 = __importDefault(require("supertest"));
 var index_1 = __importDefault(require("../index"));
+var imgResizing_1 = require("../middlewares/imgResizing");
 var request = (0, supertest_1.default)(index_1.default);
-//Test the main api route
-describe("Test the main API endpoint response", function () {
-    it("Gets the api endpoint", function () { return __awaiter(void 0, void 0, void 0, function () {
-        var response;
+var outputFolder = path_1.default.join(__dirname, "../../public/thumbnails");
+describe("Test the image resizing process", function () {
+    //test the enpoint response
+    it("Gets the resize api endpoint", function () { return __awaiter(void 0, void 0, void 0, function () {
+        var res;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, request.get("/api")];
+                case 0: return [4 /*yield*/, request.get("/api/resize?imgName=hands&imgWidth=100&imgHeight=150")];
                 case 1:
-                    response = _a.sent();
-                    expect(response.status).toBe(200);
+                    res = _a.sent();
+                    expect(res.status).toBe(200);
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+    //testing the resize process
+    it("Expect a resolved promise", function () { return __awaiter(void 0, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, expectAsync((0, imgResizing_1.resizeImage)()("hands", 100, 150)).toBeResolved()];
+                case 1:
+                    _a.sent();
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+    //the resized image should follow the design name pattern
+    it("Rename the new resized image", function () { return __awaiter(void 0, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, expect((0, imgResizing_1.getResizedImagePath)()("hands", 100, 150)).toEqual("".concat(outputFolder, "/").concat("res_").concat("hands").concat(100).concat(150, ".jpg"))];
+                case 1:
+                    _a.sent();
                     return [2 /*return*/];
             }
         });

@@ -1,14 +1,11 @@
-
 import supertest from "supertest";
 import app from "../index";
-
 const request = supertest(app);
 
-
-describe("Test  hello world endpoint response", () => {
-    it("gets the api endpoint", async (done) => {
-        const response = await request.get('/hello');
-        expect(response.status).toBe(200);
-        done();
-    }
-)});
+//Test the main api route
+describe("Test the main API endpoint response", () => {
+  it("Gets the api endpoint", async () => {
+    const response = await request.get("/api");
+    expect(response.status).toBe(200);
+  });
+});

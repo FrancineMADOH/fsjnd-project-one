@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <title>API - Image</title>
+</head>
+
+<body class="container-fluid">
+    <header>
+        <h2 class="my-2 text-center">Express Image Processing API</h1>
+    </header>
+    <main>
+        <div class="row mx-5 user-guide">
+            <h4 class="text-center">Description</h4>
+            <p>
+                This API will help you resize images via a popular npm library named <strong>sharp</strong>. As well as image resizing, operations such as rotation, extraction, compositing and gamma correction are available.
+            </p>
+            <h4 class="text-center">How to use this API</h2>
+                <ol>
+                    <li>
+                        The availables images on the server are listed below, each file has a name that might come useful
+                        when testing the API.
+
+                    </li>
+                    <li>
+                        After choosing the file you want to resize, provide the desire width and height 
+                        then fill the query string with your parameter following this pattern:</br>
+                        <i> http:localhost:4000/api/resize?imgName=<strong>"the name of the file you
+                        want to resize"</strong>&imgWidth=<strong>"A positive integer of your choice for the
+                        width"</strong>&imgHeight=<strong>"A positive integer of your choice for the width"</strong></i>
+                    </li>
+                    <li>
+                        Congratulations ! Your image has been resize ! A new image with the provided size has been created in the thumbnail folder
+                    </li>
+                    <li>
+                        We have also explore caching so that when you refresh the page the image do not load again this
+                        improve the performance of our server
+                    </li>
+
+                </ol>
+
+        </div>
+        <h3 class="my-2 text-center">Available Images</h3>
+        <div class="all-images ">
+            <div class="single-image">
+                <% files.forEach((files)=> { %>
+                    <p class="image mx-3">
+                        <img class="img img-fluid" src=<%='/images/' + files + '.jpg' %> />
+                        <span><%= `FileName: ${files}` %></span>
+                    </p>
+                    <% }) %>
+            </div>
+        </div>
+
+    </main>
+</body>
+
+</html>
