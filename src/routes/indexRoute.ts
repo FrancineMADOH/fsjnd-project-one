@@ -6,12 +6,10 @@ import imgRouter from "./apiRoutes/imgRoute";
 const router = express.Router();
 
 router.get("/", (req: Request, res: Response) => {
-
   const allImages: string[] = fs
-    .readdirSync(path.join(__dirname,'../../public/images/'))
-    //.readdirSync(path.resolve('/public/images'))
+    .readdirSync(path.join(__dirname, "../../public/images/"))
     .map((el) => el.slice(0, -4));
-  res.render('apiView', { files: allImages });
+  res.render("apiView", { files: allImages });
 });
 
 router.use("/resize", imgRouter);

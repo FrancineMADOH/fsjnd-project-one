@@ -20,6 +20,7 @@ imgRouter.get("/", async (req: Request, res: Response) => {
 
     if (fs.existsSync(imgPath) != true) {
       const newImage = await resizeImage()(imgName, imgWidth, imgHeight);
+      //save the new image to the thumbnail folder
       await fspromises.writeFile(imgPath, newImage);
     }
     res.status(200).sendFile(path.resolve(imgPath));

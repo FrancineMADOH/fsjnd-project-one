@@ -1,15 +1,21 @@
-body{
-    background-color:#eee;
-    font-size: 1.1em;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+body {
+  background-color: #eee;
+  font-size: 1.1em;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
 .single-image {
-    display: flex;
-    border: 2px solid #fff;
-    margin: 10px;
+  display: flex;
+  border: 2px solid #fff;
+  margin: 10px;
 }
-strong,h2,h3,h1,h4,span{
-    color:violet;
-    font-weight: bold;
+
+strong,
+h2,
+h3,
+h1,
+h4,
+span {
+  color: violet;
+  font-weight: bold;
 }

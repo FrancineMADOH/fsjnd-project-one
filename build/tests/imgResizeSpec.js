@@ -46,6 +46,7 @@ var imgResizing_1 = require("../middlewares/imgResizing");
 var request = (0, supertest_1.default)(index_1.default);
 var outputFolder = path_1.default.join(__dirname, "../../public/thumbnails");
 describe("Test the image resizing process", function () {
+    //test the enpoint response
     it("Gets the resize api endpoint", function () { return __awaiter(void 0, void 0, void 0, function () {
         var res;
         return __generator(this, function (_a) {
@@ -58,6 +59,7 @@ describe("Test the image resizing process", function () {
             }
         });
     }); });
+    //testing the resize process
     it("Expect a resolved promise", function () { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
@@ -68,20 +70,11 @@ describe("Test the image resizing process", function () {
             }
         });
     }); });
+    //the resized image should follow the design name pattern
     it("Rename the new resized image", function () { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, expect((0, imgResizing_1.getResizedImagePath)()("hands", 100, 150)).toEqual("".concat(outputFolder, "/").concat("res_").concat("hands").concat(100).concat(150, ".jpg"))];
-                case 1:
-                    _a.sent();
-                    return [2 /*return*/];
-            }
-        });
-    }); });
-    it("Check if the provided input file exist", function () { return __awaiter(void 0, void 0, void 0, function () {
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, expectAsync((0, imgResizing_1.resizeImage)()("man", 100, 150)).toBeRejectedWith(new Error("The provided file input does'nt exist"))];
                 case 1:
                     _a.sent();
                     return [2 /*return*/];

@@ -59,8 +59,10 @@ imgRouter.get("/", function (req, res) { return __awaiter(void 0, void 0, void 0
                 return [4 /*yield*/, (0, imgResizing_1.resizeImage)()(imgName, imgWidth, imgHeight)];
             case 1:
                 newImage = _a.sent();
+                //save the new image to the thumbnail folder
                 return [4 /*yield*/, fs_2.promises.writeFile(imgPath, newImage)];
             case 2:
+                //save the new image to the thumbnail folder
                 _a.sent();
                 _a.label = 3;
             case 3:
