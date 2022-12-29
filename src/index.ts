@@ -11,7 +11,7 @@ app.use(express.static(path.join(__dirname, "../public")));
 
 app.use("/api", router);
 
-app.get("/", (req: Request, res: Response) => {
+app.get("/", (req: Request, res: Response):void => {
   res.render("index");
 });
 

@@ -5,7 +5,7 @@ import imgRouter from "./apiRoutes/imgRoute";
 
 const router = express.Router();
 
-router.get("/", (req: Request, res: Response) => {
+router.get("/", (req: Request, res: Response): void => {
   const allImages: string[] = fs
     .readdirSync(path.join(__dirname, "../../public/images/"))
     .map((el) => el.slice(0, -4));

@@ -9,7 +9,7 @@ import {
 
 const imgRouter = express.Router();
 
-imgRouter.get("/", async (req: Request, res: Response) => {
+imgRouter.get("/", async (req: Request, res: Response):Promise<void> => {
   try {
     const imgWidth = parseInt(req.query.imgWidth as string);
     const imgHeight = parseInt(req.query.imgHeight as string);
