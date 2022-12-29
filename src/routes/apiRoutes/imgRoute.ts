@@ -9,7 +9,7 @@ import {
 
 const imgRouter = express.Router();
 
-imgRouter.get("/", async (req: Request, res: Response):Promise<void> => {
+imgRouter.get("/", async (req: Request, res: Response): Promise<void> => {
   try {
     const imgWidth = parseInt(req.query.imgWidth as string);
     const imgHeight = parseInt(req.query.imgHeight as string);
@@ -23,8 +23,8 @@ imgRouter.get("/", async (req: Request, res: Response):Promise<void> => {
       //save the new image to the thumbnail folder
       await fspromises.writeFile(imgPath, newImage);
       res.status(200).sendFile(path.resolve(imgPath));
-    } else{
-      res.status(400).render("404");
+    } else {
+      res.render("400");
     }
   } catch (e) {
     res.status(500).send("An error occurs");

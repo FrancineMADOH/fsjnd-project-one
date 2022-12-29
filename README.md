@@ -38,7 +38,7 @@ Run the linting script with `npm run lint `
 
 Beautify the project by running the prettier command `npm run prettier `
 
-### Building 
+### Building
 
 Build the project by running `npm run build`
 
@@ -48,15 +48,15 @@ visit: `http://localhost:4000/api` for documentation on how to use the API
 
 Access the `api/resize` route by providing images parameters. For example by entering the following address:
 `http:localhost:4000/api/resize?imgName=me&imgWidgth=200&imgHeight=200
-the image named me will be resized to 200x200. The new resized image will be populate in the public/thumnails folder with a new custom name following the pattern "res_" + "imageName+width +height" + ".jpeg"
+the image named me will be resized to 200x200. The new resized image will be populate in the public/thumnails folder with a new custom name following the pattern "res\_" + "imageName+width +height" + ".jpeg"
 
 ## Specials thanks and credits
 
-- https://www.digitalocean.com/community/tutorials/how-to-process-images-in-node-js-with-sharp 
+- https://www.digitalocean.com/community/tutorials/how-to-process-images-in-node-js-with-sharp
 - https://zellwk.com/blog/endpoint-testing/
-- https://stackoverflow.com/questions/59111359/express-js-typescript-error-ts2339-property-send-does-not-exist-on-type-res 
-- https://github.com/fedeval/image-processing-api 
-- https://www.positronx.io/node-rotate-resize-image-size-using-sharp-module-tutorial/ 
+- https://stackoverflow.com/questions/59111359/express-js-typescript-error-ts2339-property-send-does-not-exist-on-type-res
+- https://github.com/fedeval/image-processing-api
+- https://www.positronx.io/node-rotate-resize-image-size-using-sharp-module-tutorial/
 - https://blog.logrocket.com/processing-images-sharp-node-js/
 - https://stackoverflow.com/questions/56308581/uncaught-error-listen-eaddrinuse-address-already-in-use-3000-when-mocha-uni
 - https://www.youtube.com/watch?v=xZ_Rnh1UHTs

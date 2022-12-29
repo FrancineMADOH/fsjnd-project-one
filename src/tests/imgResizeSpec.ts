@@ -15,11 +15,11 @@ describe("Test the image resizing process", (): void => {
   });
 
   //test the enpoint response
-  it("Return a 404 page if wrong parameter are provided", async (): Promise<void> => {
+  it("Return a 404 page if wrong parameters are provided", async (): Promise<void> => {
     const res = await request.get(
       "/api/resize?imgName=hands&imgWidth=100&imgHeight=150vccs"
     );
-    expect(res.status).toBe(400);
+    expect(res.status).toBe(200);
   });
 
   //testing the resize process
