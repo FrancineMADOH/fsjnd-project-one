@@ -7,7 +7,11 @@ import {
   getResizedImagePath
 } from "../../middlewares/imgResizing";
 
+import swagerUI from "swagger-ui-express"
+
+
 const imgRouter = express.Router();
+
 
 imgRouter.get("/", async (req: Request, res: Response): Promise<void> => {
   try {
@@ -31,3 +35,5 @@ imgRouter.get("/", async (req: Request, res: Response): Promise<void> => {
 });
 
 export default imgRouter;
+
+
